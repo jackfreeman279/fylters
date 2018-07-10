@@ -1,0 +1,35 @@
+<!doctype>
+<html>
+  <head>
+    <title>Test</title>
+    <meta charset="utf-8">
+
+    <!-- Testing Deps for Mocha and Chai -->
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
+    <script src="https://cdn.rawgit.com/jquery/jquery/2.1.4/dist/jquery.min.js"></script>
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../node_modules/chai/chai.js"></script>
+    <script src="./Init.js"></script>
+
+    <!-- Filter Library -->
+    <script src="../dist/fylters.js"></script>
+
+    <!-- Test Data -->
+    <script src="./data/TestFilter.js"></script>
+    <script src="./data/FilterSets.js"></script>
+
+    <!-- Test Specs -->
+    <script src="./spec/initialisation.spec.js"></script>
+    <script src="./spec/Default.spec.js"></script>
+    <script src="./spec/Dependency.spec.js"></script>
+    <script src="./spec/Disable.spec.js"></script>
+    <script src="./spec/Reset.spec.js"></script>
+
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script>
+        mocha.run();
+    </script>
+  </body>
+</html>

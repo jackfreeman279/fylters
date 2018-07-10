@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+}
+
+.filter-block {
+    min-height: 260px;
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-block::before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background-size: cover;
+    left: -102px;
+}
+
+.filter-block__logo {
+    max-width: 900px;
+    margin: 41px auto 14px;
+}
+
+.filter-block__logo::before {
+    content:'';
+    position: relative;
+    display: block;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.filter-block--premier-league {
+    background: #F5C647;
+}
+
+.filter-block--premier-league::before {
+    background-image: url(../resource/lion.svg);
+    opacity: 2.5;
+    top: -100px;
+    left: -180px;
+    width: 500px;
+    height: 500px;
+}
+
+.filter-block--premier-league .filter-block__logo::before {
+    background-image: url(../resource/pllogo.svg);
+}
+
+.filter-block--spotify {
+    background-color: #1DB954;
+}
+
+.filter-block--spotify::before {
+    background-image: url(../resource/spoicon.png);
+    opacity: 2.5;
+    top: -100px;
+    left: -180px;
+    width: 500px;
+    height: 500px;
+    left: auto;
+    right: -180px;
+}
+
+.filter-block--spotify .filter-block__logo::before {
+    background-image: url(../resource/spotifylogo.png);
+}
+
+.filter-block--ghibli {
+    background: linear-gradient( to bottom, #FCF4EF, #F6C8C3 );
+}
+
+.filter-block--ghibli::before {
+    background-image: url(../resource/totoro.png);
+    opacity: 2.5;
+    top: -100px;
+    left: -180px;
+    width: 500px;
+    height: 500px;
+}
+
+
+.filter-block--events {
+    background: #009CDE;
+}
+
+.filter-block--ghibli .filter-block__logo::before {
+    background-image: url(../resource/ghiblilogo.png);
+    height: 70px;
+}
+
+.filter-block--events::before {
+    background-image: url(../resource/event.jpg);
+    opacity: 2.5;
+    top: -100px;
+    left: -180px;
+    height: 500px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    background-blend-mode: color-dodge;
+    opacity: 0.4;
+    background-color: #009CDE;
+}
+
+.filter-block--events .filter-block__logo::before {
+    background-image: url(../resource/tmlogo.png);
+    height: 26px;
+}
+
+@media ( max-width: 790px ) {
+    .filter-block--ghibli::before,
+    .filter-block--spotify::before,
+    .filter-block--premier-league::before {
+        opacity: .4;
+    }
+}

@@ -1,0 +1,222 @@
+.filter {
+    cursor: pointer;
+    flex: 1;
+    font-family: raleway;
+    overflow: hidden;
+    margin: 0 4px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 17px -3px rgba( 0, 0, 0, 0.1 );
+    border: 2px solid rgba( 0, 0, 0, 0.03 );
+    position: relative;
+    padding-right: 40px;
+    background-color: #fff;
+    border-bottom: none;
+    max-width: 200px;
+
+}
+
+.reset {
+    width: 60px;
+    -webkit-appearance: none;
+    border: none;
+    border: 2px solid rgba( 0, 0, 0, 0.03 );
+    cursor: pointer;
+    position: relative;
+    text-indent: -9999px;
+    overflow: hidden;
+    outline: none;
+    border-radius: 5px;
+    margin: 0 4px;
+}
+
+.reset::after {
+    content: '';
+    background-image: url(../resource/refresh.svg);
+    width: 20px;
+    height: 20px;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX( -50% ) translateY( -50% );
+    opacity: .5;
+    cursor: pointer;
+    width: 12px;
+    height: 13px;
+    vertical-align: middle;
+}
+
+.filter::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 40px;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient( to right, transparent, #fff 35% );
+    pointer-events: none;
+    z-index: 7;
+}
+
+.filter::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid rgba( 0, 0, 0, 0.18 );
+    border-bottom: 5px solid transparent;
+    position: absolute;
+    right: 9px;
+    z-index: 20;
+    bottom: 14px;
+    pointer-events: none;
+}
+
+.filter--disabled {
+    cursor: not-allowed;
+}
+
+.filter--disabled .filter__label,
+.filter--disabled .filter__select,
+.filter--disabled .filter__indicator,
+.filter--loading .filter__label,
+.filter--loading .filter__select,
+.filter--loading .filter__indicator {
+    opacity: .5;
+}
+
+.filter--disabled .filter__select {
+    pointer-events: none;
+    animation: none;
+}
+
+.filter--disabled .filter__label {
+    pointer-events: none;
+    animation: none;
+}
+
+
+.filter--loading {
+    cursor: not-allowed;
+}
+
+.filter--loading .filter__select {
+    pointer-events: none;
+}
+
+
+.filter__label {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    padding-bottom: 4px;
+    font-size: 11px;
+    display: block;
+    opacity: .6;
+    pointer-events: none;
+    z-index: 10;
+    position: relative;
+
+    animation-name: fadein;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+
+.filter__select {
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    display: block;
+    font-weight: lighter;
+    z-index: 5;
+    cursor: pointer;
+    min-width: 100%;
+
+    animation-name: fadein;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+
+@keyframes loading {
+    0% {
+        bottom: -50%;
+    }
+
+    100% {
+        bottom: 200%;
+    }
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.filter__indicator {
+    height: 3px;
+    background-color: #BFD152;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+}
+
+.filter--disabled .filter__indicator {
+    background-color: #ED5C3C;
+}
+
+.filter--loading .filter__indicator {
+    height: 40px;
+    background: linear-gradient( to top, transparent, #F5C647 );
+    transform: translateY( 40px );
+    animation-name: loading;
+    animation-duration: .9s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+}
+
+@media ( max-width: 520px ) {
+
+    .filter {
+        padding-right: 0;
+        margin: 0;
+        margin-bottom: 4px;
+        max-width: 100%;
+    }
+
+    .reset {
+        text-indent: 0;
+        width: 100%;
+        padding: 16px 0;
+        font-family: raleway;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: rgba( 0, 0, 0, .6 );
+        font-size: 13px;
+        margin: 0;
+    }
+
+    .reset::after {
+        display: inline-block;
+        position: relative;
+        transform: none;
+        width: 13px;
+        height: 13px;
+        left: auto;
+        top: auto;
+        vertical-align: text-top;
+        margin-left: 5px;
+    }
+}
