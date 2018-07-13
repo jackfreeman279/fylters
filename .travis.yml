@@ -1,4 +1,8 @@
 language: node_js
+dist: trusty
+addons:
+    chrome: stable
+sudo: required
 node_js:
     - '9'
 install:
