@@ -75,7 +75,7 @@ gulp.task( 'watch:css', function() {
 
 
 gulp.task( 'watch', function() {
-    return runSequence( [ 'serve:tests', 'serve:docs', 'serve:pages' ], [ 'watch:js', 'watch:css' ] )
+    return runSequence( [ 'default', 'serve:tests', 'serve:docs', 'serve:pages' ], [ 'watch:js', 'watch:css' ] )
 } );
 
 gulp.task( 'default', [ 'js', 'sass', 'docs' ] );
