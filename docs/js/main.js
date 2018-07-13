@@ -159,7 +159,7 @@ window.MUSIC = [
     {
         name: 'UK Top 10 Artist',
         data: () => {
-            return jsonpPromise( 'http://api.musixmatch.com/ws/1.1/chart.artists.get', {
+            return jsonpPromise( 'https://api.musixmatch.com/ws/1.1/chart.artists.get', {
                 page: 1,
                 page_size: 10,
                 country: 'gb',
@@ -183,7 +183,7 @@ window.MUSIC = [
     {
         name: 'Albums',
         data: artistFilter => {
-            return jsonpPromise( 'http://api.musixmatch.com/ws/1.1/artist.albums.get', {
+            return jsonpPromise( 'https://api.musixmatch.com/ws/1.1/artist.albums.get', {
                 page: 1,
                 page_size: 10,
                 country: 'gb',
@@ -210,7 +210,7 @@ window.MUSIC = [
         name: 'Tracks',
         dependsOn: [ 'Albums' ],
         data: albumFilter => {
-            return jsonpPromise( 'http://api.musixmatch.com/ws/1.1/album.tracks.get', {
+            return jsonpPromise( 'https://api.musixmatch.com/ws/1.1/album.tracks.get', {
                 page: 1,
                 page_size: 50,
                 country: 'gb',
