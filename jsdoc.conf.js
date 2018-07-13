@@ -3,7 +3,7 @@ module.exports = {
     "allowUnknownTags": true
   },
   "opts": {
-    "destination": "./gh-pages/docs"
+    "destination": "./docs/developer"
   },
   "plugins": [
     "plugins/markdown"

@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Fylters Class: NativeSelectFilter</title>
+	<title>Fylters Interface: FilterInterface</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -79,16 +79,16 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: NativeSelectFilter</h1>
+	<h1 class="page-title">Interface: FilterInterface</h1>
 <section>
 
 <header>
     
         <h2>
-        NativeSelectFilter
+        FilterInterface
         </h2>
         
-            <div class="class-description"><p>An example implementation of a custom filter dropdown</p></div>
+            <div class="class-description"><p>Class representing the functions that must be implemented by a custom filter</p></div>
         
     
 </header>
@@ -98,24 +98,8 @@
     <div class="container-overview">
     
         
-<hr>
-<dt>
-    <h4 class="name" id="NativeSelectFilter"><span class="type-signature"></span>new NativeSelectFilter()</h4>
-    
-    
-</dt>
-<dd>
 
-    
-
-    
-
-    
-
-    
-    
-
-    
+        
 <dl class="details">
     
 
@@ -129,13 +113,6 @@
 
     
 
-    
-    <dt class="implements">Implements:</dt>
-    <dd class="implements"><ul>
-        
-            <li><a href="FilterInterface.html">FilterInterface</a></li>
-        
-    </ul></dd>
     
 
     
@@ -162,21 +139,7 @@
 </dl>
 
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
+        
     
     </div>
 
@@ -199,436 +162,6 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="createOptionElement"><span class="type-signature"></span>createOptionElement(option)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Create a select dropdown <option> element in memory</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>option</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="global.html#Option">Option</a></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>the option to create</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>the <option> element</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">HTMLElement</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="createSelectElement"><span class="type-signature"></span>createSelectElement(name, options, defaultValue)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Create a select element in memory</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>the title of the filter</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;<a href="global.html#Option">Option</a>></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>the set of options to render</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>defaultValue</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>the ID of the option that is currently selected</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>object containing a select element, label and a indicator element which is colored depending on state</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Object</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="onSelect"><span class="type-signature"></span>onSelect()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Callback for when the select dropdown changes its value</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
     <h4 class="name" id="removeLoadingState"><span class="type-signature"></span>removeLoadingState(title)</h4>
     
     
@@ -637,7 +170,7 @@
 
     
     <div class="description">
-        <p>Get rid of the loading class</p>
+        <p>Remove the loading state from tge filter called by library code when the data has been fetched</p>
     </div>
     
 
@@ -689,7 +222,7 @@
 
             
 
-            <td class="description last"><p>title of the element</p></td>
+            <td class="description last"><p>the title of the filter</p></td>
         </tr>
 
     
@@ -712,13 +245,6 @@
 
     
 
-    
-    <dt class="implements">Implements:</dt>
-    <dd class="implements"><ul>
-        
-            <li><a href="FilterInterface.html#removeLoadingState">FilterInterface#removeLoadingState</a></li>
-        
-    </ul></dd>
     
 
     
@@ -896,13 +422,6 @@
     
 
     
-    <dt class="implements">Implements:</dt>
-    <dd class="implements"><ul>
-        
-            <li><a href="FilterInterface.html#render">FilterInterface#render</a></li>
-        
-    </ul></dd>
-    
 
     
 
@@ -955,7 +474,7 @@
 
     
     <div class="description">
-        <p>Set the container so it can be used to render the filter into later</p>
+        <p>Allows you to keep a reference to the container element and when rendering your custom markup should go into this container</p>
     </div>
     
 
@@ -1007,7 +526,7 @@
 
             
 
-            <td class="description last"><p>the filter container</p></td>
+            <td class="description last"><p>the container where the filter should be rendered</p></td>
         </tr>
 
     
@@ -1030,13 +549,6 @@
 
     
 
-    
-    <dt class="implements">Implements:</dt>
-    <dd class="implements"><ul>
-        
-            <li><a href="FilterInterface.html#setContainer">FilterInterface#setContainer</a></li>
-        
-    </ul></dd>
     
 
     
@@ -1090,7 +602,7 @@
 
     
     <div class="description">
-        <p>make sure the user cannot interact with the filter</p>
+        <p>Disable the filter so that the user cannot interact with it</p>
     </div>
     
 
@@ -1142,7 +654,7 @@
 
             
 
-            <td class="description last"><p>title of the element</p></td>
+            <td class="description last"><p>the title of the filter</p></td>
         </tr>
 
     
@@ -1165,13 +677,6 @@
 
     
 
-    
-    <dt class="implements">Implements:</dt>
-    <dd class="implements"><ul>
-        
-            <li><a href="FilterInterface.html#setDisabledState">FilterInterface#setDisabledState</a></li>
-        
-    </ul></dd>
     
 
     
@@ -1225,7 +730,7 @@
 
     
     <div class="description">
-        <p>Set the filter into a error state as something has gone wrong</p>
+        <p>Something has gone wrong with the filter ! display an error state to the user</p>
     </div>
     
 
@@ -1250,13 +755,6 @@
 
     
 
-    
-    <dt class="implements">Implements:</dt>
-    <dd class="implements"><ul>
-        
-            <li><a href="FilterInterface.html#setErrorState">FilterInterface#setErrorState</a></li>
-        
-    </ul></dd>
     
 
     
@@ -1310,7 +808,8 @@
 
     
     <div class="description">
-        <p>Set the select into a loading state while it fetches data</p>
+        <p>Your custom implementation should provide a loading state for the filter this will be invoked when
+the filter starts to fetch data</p>
     </div>
     
 
@@ -1362,7 +861,7 @@
 
             
 
-            <td class="description last"><p>title of the element</p></td>
+            <td class="description last"><p>the title of the filter</p></td>
         </tr>
 
     
@@ -1385,13 +884,6 @@
 
     
 
-    
-    <dt class="implements">Implements:</dt>
-    <dd class="implements"><ul>
-        
-            <li><a href="FilterInterface.html#setLoadingState">FilterInterface#setLoadingState</a></li>
-        
-    </ul></dd>
     
 
     
@@ -1523,13 +1015,6 @@ that was seldcted when this happens in you rimplementation</p>
     
 
     
-    <dt class="implements">Implements:</dt>
-    <dd class="implements"><ul>
-        
-            <li><a href="FilterInterface.html#setSelectedCallback">FilterInterface#setSelectedCallback</a></li>
-        
-    </ul></dd>
-    
 
     
 
@@ -1659,13 +1144,6 @@ an ID of an option</p>
     
 
     
-    <dt class="implements">Implements:</dt>
-    <dd class="implements"><ul>
-        
-            <li><a href="FilterInterface.html#setValue">FilterInterface#setValue</a></li>
-        
-    </ul></dd>
-    
 
     
 
@@ -1756,7 +1234,7 @@ an ID of an option</p>
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on July 13th 2018, 6:19:42 pm
+		on July 13th 2018, 6:27:43 pm
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

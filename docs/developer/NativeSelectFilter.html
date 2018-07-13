@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Fylters Class: FilterSet</title>
+	<title>Fylters Class: NativeSelectFilter</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -79,16 +79,16 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: FilterSet</h1>
+	<h1 class="page-title">Class: NativeSelectFilter</h1>
 <section>
 
 <header>
     
         <h2>
-        FilterSet
+        NativeSelectFilter
         </h2>
         
-            <div class="class-description"><p>Filter Set clas, this is the main class exported from the library</p></div>
+            <div class="class-description"><p>An example implementation of a custom filter dropdown</p></div>
         
     
 </header>
@@ -100,97 +100,19 @@
         
 <hr>
 <dt>
-    <h4 class="name" id="FilterSet"><span class="type-signature"></span>new FilterSet(container, config)</h4>
+    <h4 class="name" id="NativeSelectFilter"><span class="type-signature"></span>new NativeSelectFilter()</h4>
     
     
 </dt>
 <dd>
 
     
-    <div class="description">
-        <p>Construct the filter set</p>
-    </div>
-    
 
     
 
     
 
     
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>container</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">HTMLElement</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>container where filters are to be rendered</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>config</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="global.html#FilterSetConfig">FilterSetConfig</a></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>the configuration</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
     
 
     
@@ -207,6 +129,13 @@
 
     
 
+    
+    <dt class="implements">Implements:</dt>
+    <dd class="implements"><ul>
+        
+            <li><a href="FilterInterface.html">FilterInterface</a></li>
+        
+    </ul></dd>
     
 
     
@@ -270,7 +199,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id=".DEFAULT_CONFIG"><span class="type-signature">&lt;static> </span>DEFAULT_CONFIG()</h4>
+    <h4 class="name" id="createOptionElement"><span class="type-signature"></span>createOptionElement(option)</h4>
     
     
 </dt>
@@ -278,109 +207,7 @@
 
     
     <div class="description">
-        <p>Get the default configuration for the filterSet</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>the default config</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="global.html#FilterSetConfig">FilterSetConfig</a></span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="_buildFilterInstances"><span class="type-signature"></span>_buildFilterInstances(filterConfigs)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>takes in the configs and creates Filter class instances from these</p>
+        <p>Create a select dropdown <option> element in memory</p>
     </div>
     
 
@@ -415,13 +242,13 @@
 
         <tr>
             
-                <td class="name"><code>filterConfigs</code></td>
+                <td class="name"><code>option</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Array.&lt;<a href="global.html#FilterConfig">FilterConfig</a>></span>
+<span class="param-type"><a href="global.html#Option">Option</a></span>
 
 
 
@@ -432,7 +259,7 @@
 
             
 
-            <td class="description last"><p>the configurations</p></td>
+            <td class="description last"><p>the option to create</p></td>
         </tr>
 
     
@@ -496,7 +323,7 @@
     
             
 <div class="param-desc">
-    <p>the constructed instances</p>
+    <p>the <option> element</p>
 </div>
 
 
@@ -507,7 +334,7 @@
     </dt>
     <dd>
         
-<span class="param-type">Array.&lt;<a href="Filter.html">Filter</a>></span>
+<span class="param-type">HTMLElement</span>
 
 
 
@@ -524,7 +351,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="_buildTree"><span class="type-signature"></span>_buildTree(filters)</h4>
+    <h4 class="name" id="createSelectElement"><span class="type-signature"></span>createSelectElement(name, options, defaultValue)</h4>
     
     
 </dt>
@@ -532,288 +359,7 @@
 
     
     <div class="description">
-        <p>Filter dependencies are represented as a tree structure, every filter class extends TreeNode which provides the node behaviour
-This function builds that tree.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>filters</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;<a href="Filter.html">Filter</a>></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>the set of filters</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="_getAllChildren"><span class="type-signature"></span>_getAllChildren(filters)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Fetch all the children for a given set of filters</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>filters</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;<a href="Filter.html">Filter</a>></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>the filters</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>the resulting children</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Array.&lt;<a href="Filter.html">Filter</a>></span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="_getFilterByName"><span class="type-signature"></span>_getFilterByName(name, filters)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Fetch a filter by providing its name</p>
+        <p>Create a select element in memory</p>
     </div>
     
 
@@ -865,20 +411,20 @@ This function builds that tree.</p>
 
             
 
-            <td class="description last"><p>name of the filter</p></td>
+            <td class="description last"><p>the title of the filter</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>filters</code></td>
+                <td class="name"><code>options</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Array.&lt;<a href="Filter.html">Filter</a>></span>
+<span class="param-type">Array.&lt;<a href="global.html#Option">Option</a>></span>
 
 
 
@@ -889,7 +435,31 @@ This function builds that tree.</p>
 
             
 
-            <td class="description last"><p>the set of filters</p></td>
+            <td class="description last"><p>the set of options to render</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>defaultValue</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the ID of the option that is currently selected</p></td>
         </tr>
 
     
@@ -953,7 +523,7 @@ This function builds that tree.</p>
     
             
 <div class="param-desc">
-    <p>the filter found or null</p>
+    <p>object containing a select element, label and a indicator element which is colored depending on state</p>
 </div>
 
 
@@ -964,10 +534,7 @@ This function builds that tree.</p>
     </dt>
     <dd>
         
-<span class="param-type"><a href="Filter.html">Filter</a></span>
-|
-
-<span class="param-type">null</span>
+<span class="param-type">Object</span>
 
 
 
@@ -984,7 +551,7 @@ This function builds that tree.</p>
             
 <hr>
 <dt>
-    <h4 class="name" id="_getFilterStates"><span class="type-signature"></span>_getFilterStates()</h4>
+    <h4 class="name" id="onSelect"><span class="type-signature"></span>onSelect()</h4>
     
     
 </dt>
@@ -992,110 +559,7 @@ This function builds that tree.</p>
 
     
     <div class="description">
-        <p>Get the state of each filter</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>the curretn states</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Array.&lt;<a href="global.html#CurrentFilterValue">CurrentFilterValue</a>></span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="_initialiseFilters"><span class="type-signature"></span>_initialiseFilters()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Function that is called only once when the filters are initialising. It will tell all the root filters
-to fetch their data and render. The normal dependency behaviour will then handle the rest of the updates</p>
+        <p>Callback for when the select dropdown changes its value</p>
     </div>
     
 
@@ -1165,7 +629,7 @@ to fetch their data and render. The normal dependency behaviour will then handle
             
 <hr>
 <dt>
-    <h4 class="name" id="_onFilterUpdated"><span class="type-signature"></span>_onFilterUpdated(filter)</h4>
+    <h4 class="name" id="removeLoadingState"><span class="type-signature"></span>removeLoadingState(title)</h4>
     
     
 </dt>
@@ -1173,7 +637,7 @@ to fetch their data and render. The normal dependency behaviour will then handle
 
     
     <div class="description">
-        <p>Function that begins the filter updating process</p>
+        <p>Get rid of the loading class</p>
     </div>
     
 
@@ -1208,13 +672,13 @@ to fetch their data and render. The normal dependency behaviour will then handle
 
         <tr>
             
-                <td class="name"><code>filter</code></td>
+                <td class="name"><code>title</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="Filter.html">Filter</a></span>
+<span class="param-type">String</span>
 
 
 
@@ -1225,7 +689,7 @@ to fetch their data and render. The normal dependency behaviour will then handle
 
             
 
-            <td class="description last"><p>The filter that was updated</p></td>
+            <td class="description last"><p>title of the element</p></td>
         </tr>
 
     
@@ -1249,107 +713,12 @@ to fetch their data and render. The normal dependency behaviour will then handle
     
 
     
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>promise that resolves when the update is complete, state has been updated and user callback invoked</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
+    <dt class="implements">Implements:</dt>
+    <dd class="implements"><ul>
         
-<span class="param-type">Promise</span>
-
-
-
-    </dd>
-</dl>
-
-
+            <li><a href="FilterInterface.html#removeLoadingState">FilterInterface#removeLoadingState</a></li>
         
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="_render"><span class="type-signature"></span>_render()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Renders neccacary elements into the container</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
+    </ul></dd>
     
 
     
@@ -1395,7 +764,7 @@ to fetch their data and render. The normal dependency behaviour will then handle
             
 <hr>
 <dt>
-    <h4 class="name" id="_setAffectedFiltersLoading"><span class="type-signature"></span>_setAffectedFiltersLoading(filter)</h4>
+    <h4 class="name" id="render"><span class="type-signature"></span>render(title, options, defaultOptionValue)</h4>
     
     
 </dt>
@@ -1403,9 +772,7 @@ to fetch their data and render. The normal dependency behaviour will then handle
 
     
     <div class="description">
-        <p>We can immediatley determine which filters will be updated when a filter is changed by following its dependency tree
-So here we do this and set these filters to loading state while we do any work needed to update them.</p>
-<p>This is done recursivley on children of a given filter</p>
+        <p>The main render function that will be called to add the filter to the DOM</p>
     </div>
     
 
@@ -1440,13 +807,13 @@ So here we do this and set these filters to loading state while we do any work n
 
         <tr>
             
-                <td class="name"><code>filter</code></td>
+                <td class="name"><code>title</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="Filter.html">Filter</a></span>
+<span class="param-type">String</span>
 
 
 
@@ -1457,7 +824,55 @@ So here we do this and set these filters to loading state while we do any work n
 
             
 
-            <td class="description last"><p>the filter whose children to set loading</p></td>
+            <td class="description last"><p>the title of the filter</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="global.html#Option">Option</a>></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the set of options to render</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>defaultOptionValue</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the ID of the option that is currently selected</p></td>
         </tr>
 
     
@@ -1480,6 +895,13 @@ So here we do this and set these filters to loading state while we do any work n
 
     
 
+    
+    <dt class="implements">Implements:</dt>
+    <dd class="implements"><ul>
+        
+            <li><a href="FilterInterface.html#render">FilterInterface#render</a></li>
+        
+    </ul></dd>
     
 
     
@@ -1525,7 +947,7 @@ So here we do this and set these filters to loading state while we do any work n
             
 <hr>
 <dt>
-    <h4 class="name" id="_updateFilterTree"><span class="type-signature"></span>_updateFilterTree(filters)</h4>
+    <h4 class="name" id="setContainer"><span class="type-signature"></span>setContainer(container)</h4>
     
     
 </dt>
@@ -1533,9 +955,7 @@ So here we do this and set these filters to loading state while we do any work n
 
     
     <div class="description">
-        <p>This is the main update function that is called when a filter is updated, Ite evaluates each
-level of the dependency tree in turn and returns a promise to resolve the next level the promise is
-resolved when there are no more children to update</p>
+        <p>Set the container so it can be used to render the filter into later</p>
     </div>
     
 
@@ -1570,13 +990,13 @@ resolved when there are no more children to update</p>
 
         <tr>
             
-                <td class="name"><code>filters</code></td>
+                <td class="name"><code>container</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Array.&lt;<a href="Filter.html">Filter</a>></span>
+<span class="param-type">HTMLElement</span>
 
 
 
@@ -1587,7 +1007,7 @@ resolved when there are no more children to update</p>
 
             
 
-            <td class="description last"><p>the filters which have children that need to be resolved</p></td>
+            <td class="description last"><p>the filter container</p></td>
         </tr>
 
     
@@ -1611,6 +1031,13 @@ resolved when there are no more children to update</p>
     
 
     
+    <dt class="implements">Implements:</dt>
+    <dd class="implements"><ul>
+        
+            <li><a href="FilterInterface.html#setContainer">FilterInterface#setContainer</a></li>
+        
+    </ul></dd>
+    
 
     
 
@@ -1647,30 +1074,6 @@ resolved when there are no more children to update</p>
     
 
     
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>promise that resolves when all updates are complete</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
 
     
 </dd>
@@ -1679,7 +1082,7 @@ resolved when there are no more children to update</p>
             
 <hr>
 <dt>
-    <h4 class="name" id="getInstances"><span class="type-signature"></span>getInstances()</h4>
+    <h4 class="name" id="setDisabledState"><span class="type-signature"></span>setDisabledState(title)</h4>
     
     
 </dt>
@@ -1687,313 +1090,7 @@ resolved when there are no more children to update</p>
 
     
     <div class="description">
-        <p>Get the filter instances</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>the filters</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Array.&lt;<a href="Filter.html">Filter</a>></span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="getState"><span class="type-signature"></span>getState()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Get the current state of the filter</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>th current state</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="global.html#FilterSetState">FilterSetState</a></span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="reset"><span class="type-signature"></span>reset()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Begin the process of resetting the filters to their original value</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>promise that resolves when the filter has been reset</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="setState"><span class="type-signature"></span>setState(state)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Set the state of the filter set</p>
+        <p>make sure the user cannot interact with the filter</p>
     </div>
     
 
@@ -2028,13 +1125,13 @@ resolved when there are no more children to update</p>
 
         <tr>
             
-                <td class="name"><code>state</code></td>
+                <td class="name"><code>title</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#FilterSetState">FilterSetState</a></span>
+<span class="param-type">String</span>
 
 
 
@@ -2045,7 +1142,7 @@ resolved when there are no more children to update</p>
 
             
 
-            <td class="description last"><p>state to set</p></td>
+            <td class="description last"><p>title of the element</p></td>
         </tr>
 
     
@@ -2068,6 +1165,506 @@ resolved when there are no more children to update</p>
 
     
 
+    
+    <dt class="implements">Implements:</dt>
+    <dd class="implements"><ul>
+        
+            <li><a href="FilterInterface.html#setDisabledState">FilterInterface#setDisabledState</a></li>
+        
+    </ul></dd>
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="setErrorState"><span class="type-signature"></span>setErrorState()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Set the filter into a error state as something has gone wrong</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+    <dt class="implements">Implements:</dt>
+    <dd class="implements"><ul>
+        
+            <li><a href="FilterInterface.html#setErrorState">FilterInterface#setErrorState</a></li>
+        
+    </ul></dd>
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="setLoadingState"><span class="type-signature"></span>setLoadingState(title)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Set the select into a loading state while it fetches data</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>title</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>title of the element</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+    <dt class="implements">Implements:</dt>
+    <dd class="implements"><ul>
+        
+            <li><a href="FilterInterface.html#setLoadingState">FilterInterface#setLoadingState</a></li>
+        
+    </ul></dd>
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="setSelectedCallback"><span class="type-signature"></span>setSelectedCallback(callback)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>This function will be called with a callback function by fylter library code.
+You can then store this callback reference and invoke it with the value of the option
+that was seldcted when this happens in you rimplementation</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the callback function that accepts a single 'value' argument</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+    <dt class="implements">Implements:</dt>
+    <dd class="implements"><ul>
+        
+            <li><a href="FilterInterface.html#setSelectedCallback">FilterInterface#setSelectedCallback</a></li>
+        
+    </ul></dd>
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="setValue"><span class="type-signature"></span>setValue(id)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Your custom implmentation should provide a way to set the value of a filter programatically given
+an ID of an option</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the id of the option to set</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+    <dt class="implements">Implements:</dt>
+    <dd class="implements"><ul>
+        
+            <li><a href="FilterInterface.html#setValue">FilterInterface#setValue</a></li>
+        
+    </ul></dd>
     
 
     
@@ -2159,7 +1756,7 @@ resolved when there are no more children to update</p>
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on July 13th 2018, 6:19:42 pm
+		on July 13th 2018, 6:27:43 pm
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

@@ -9,8 +9,8 @@ const webserver = require('gulp-webserver');
 const runSequence = require('run-sequence');
 
 const CONFIG = {
-    docRoot: './gh-pages/docs/',
-    pagesRoot: './gh-pages/',
+    docRoot: './docs/developer/',
+    pagesRoot: './docs/',
     testRoot: './test/'
 }
 
@@ -49,7 +49,7 @@ gulp.task( 'js', function() {
     return gulp.src('./lib/js/Index.js')
       .pipe(webpack( require( './webpack.conf.js' ) ))
       .pipe(gulp.dest('dist/'))
-      .pipe(gulp.dest('gh-pages/js/'))
+      .pipe(gulp.dest('docs/js/'))
 } );
 
 gulp.task( 'sass', function() {
@@ -57,7 +57,7 @@ gulp.task( 'sass', function() {
         .pipe( sass() )
         .pipe( rename( 'filter.css' ) )
         .pipe( gulp.dest( 'dist' ) )
-        .pipe( gulp.dest( 'gh-pages/styles' ) )
+        .pipe( gulp.dest( 'docs/styles' ) )
 } );
 
 gulp.task( 'docs', function( cb ) {

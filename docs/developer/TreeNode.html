@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Fylters Interface: FilterInterface</title>
+	<title>Fylters Class: TreeNode</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -79,16 +79,18 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Interface: FilterInterface</h1>
+	<h1 class="page-title">Class: TreeNode</h1>
 <section>
 
 <header>
     
         <h2>
-        FilterInterface
+        TreeNode
         </h2>
         
-            <div class="class-description"><p>Class representing the functions that must be implemented by a custom filter</p></div>
+            <div class="class-description"><p>Class the describes a simple node in a treew data structure. Each filter is modeled as a element in a tree and this
+is how the dependencies are modeled and evaluated, dependencies are represented as a parent child relationship.
+Here we provide helper methods for evalutaing these relationships.</p></div>
         
     
 </header>
@@ -98,8 +100,28 @@
     <div class="container-overview">
     
         
+<hr>
+<dt>
+    <h4 class="name" id="TreeNode"><span class="type-signature"></span>new TreeNode()</h4>
+    
+    
+</dt>
+<dd>
 
-        
+    
+    <div class="description">
+        <p>initialise the tree node with no parent and no children</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
 <dl class="details">
     
 
@@ -139,7 +161,21 @@
 </dl>
 
 
-        
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
     
     </div>
 
@@ -162,7 +198,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="removeLoadingState"><span class="type-signature"></span>removeLoadingState(title)</h4>
+    <h4 class="name" id="addChild"><span class="type-signature"></span>addChild(node)</h4>
     
     
 </dt>
@@ -170,7 +206,7 @@
 
     
     <div class="description">
-        <p>Remove the loading state from tge filter called by library code when the data has been fetched</p>
+        <p>Add a TreeNode as a child of this node and set it as parent value</p>
     </div>
     
 
@@ -205,13 +241,13 @@
 
         <tr>
             
-                <td class="name"><code>title</code></td>
+                <td class="name"><code>node</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">String</span>
+<span class="param-type"><a href="TreeNode.html">TreeNode</a></span>
 
 
 
@@ -222,7 +258,7 @@
 
             
 
-            <td class="description last"><p>the title of the filter</p></td>
+            <td class="description last"><p>the node to add as a child</p></td>
         </tr>
 
     
@@ -290,7 +326,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="render"><span class="type-signature"></span>render(title, options, defaultOptionValue)</h4>
+    <h4 class="name" id="getChildren"><span class="type-signature"></span>getChildren()</h4>
     
     
 </dt>
@@ -298,7 +334,211 @@
 
     
     <div class="description">
-        <p>The main render function that will be called to add the filter to the DOM</p>
+        <p>Get all the children of this node</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>the children</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;<a href="TreeNode.html">TreeNode</a>></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="getParent"><span class="type-signature"></span>getParent()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Get the current parent if it exists</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>the parent or null</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="TreeNode.html">TreeNode</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="hasChild"><span class="type-signature"></span>hasChild(node)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Is a given node a child of this node?</p>
     </div>
     
 
@@ -333,13 +573,13 @@
 
         <tr>
             
-                <td class="name"><code>title</code></td>
+                <td class="name"><code>node</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">String</span>
+<span class="param-type"><a href="TreeNode.html">TreeNode</a></span>
 
 
 
@@ -350,55 +590,7 @@
 
             
 
-            <td class="description last"><p>the title of the filter</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;<a href="global.html#Option">Option</a>></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>the set of options to render</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>defaultOptionValue</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>the ID of the option that is currently selected</p></td>
+            <td class="description last"><p>the node to check</p></td>
         </tr>
 
     
@@ -458,6 +650,30 @@
     
 
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>if the given node is a child of a parent</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Boolean</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
 
     
 </dd>
@@ -466,7 +682,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="setContainer"><span class="type-signature"></span>setContainer(container)</h4>
+    <h4 class="name" id="hasChildren"><span class="type-signature"></span>hasChildren()</h4>
     
     
 </dt>
@@ -474,7 +690,211 @@
 
     
     <div class="description">
-        <p>Allows you to keep a reference to the container element and when rendering your custom markup should go into this container</p>
+        <p>Wether the node has any children at the moment</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>wether the node has any children</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Boolean</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="isRoot"><span class="type-signature"></span>isRoot()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>A root node is a node with no parents, i.e. this node is dependant on no others</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>Wether the node is a child</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Boolean</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="parentIs"><span class="type-signature"></span>parentIs(node)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Check wether the given node is the parent of this node</p>
     </div>
     
 
@@ -509,13 +929,13 @@
 
         <tr>
             
-                <td class="name"><code>container</code></td>
+                <td class="name"><code>node</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">HTMLElement</span>
+<span class="param-type"><a href="TreeNode.html">TreeNode</a></span>
 
 
 
@@ -526,7 +946,7 @@
 
             
 
-            <td class="description last"><p>the container where the filter should be rendered</p></td>
+            <td class="description last"><p>node to check</p></td>
         </tr>
 
     
@@ -586,6 +1006,30 @@
     
 
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>wether the given node is a preant of this node</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Boolean</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
 
     
 </dd>
@@ -594,7 +1038,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="setDisabledState"><span class="type-signature"></span>setDisabledState(title)</h4>
+    <h4 class="name" id="setParent"><span class="type-signature"></span>setParent(node)</h4>
     
     
 </dt>
@@ -602,7 +1046,7 @@
 
     
     <div class="description">
-        <p>Disable the filter so that the user cannot interact with it</p>
+        <p>Add a given node as a parent of this node</p>
     </div>
     
 
@@ -637,13 +1081,13 @@
 
         <tr>
             
-                <td class="name"><code>title</code></td>
+                <td class="name"><code>node</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">String</span>
+<span class="param-type"><a href="TreeNode.html">TreeNode</a></span>
 
 
 
@@ -654,473 +1098,7 @@
 
             
 
-            <td class="description last"><p>the title of the filter</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="setErrorState"><span class="type-signature"></span>setErrorState()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Something has gone wrong with the filter ! display an error state to the user</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="setLoadingState"><span class="type-signature"></span>setLoadingState(title)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Your custom implementation should provide a loading state for the filter this will be invoked when
-the filter starts to fetch data</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>title</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>the title of the filter</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="setSelectedCallback"><span class="type-signature"></span>setSelectedCallback(callback)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>This function will be called with a callback function by fylter library code.
-You can then store this callback reference and invoke it with the value of the option
-that was seldcted when this happens in you rimplementation</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>the callback function that accepts a single 'value' argument</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="setValue"><span class="type-signature"></span>setValue(id)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Your custom implmentation should provide a way to set the value of a filter programatically given
-an ID of an option</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>the id of the option to set</p></td>
+            <td class="description last"><p>the parent to set</p></td>
         </tr>
 
     
@@ -1234,7 +1212,7 @@ an ID of an option</p>
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on July 13th 2018, 6:19:42 pm
+		on July 13th 2018, 6:27:43 pm
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
