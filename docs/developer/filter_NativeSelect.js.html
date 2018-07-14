@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: filter/NativeSelect.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+    <link type="text/css" rel="stylesheet" href="styles/site.flatly.css">
+    <link type="text/css" rel="stylesheet" href="styles/docs.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: filter/NativeSelect.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { FilterInterface } from './FilterInterface.js';
+
+/**
+ * An example implementation of a custom filter dropdown
+ * @implements FilterInterface
+ */
+export class NativeSelectFilter extends FilterInterface {
+
+    constructor() {
+        super();
+    }
+
+    /**
+     * Save a reference to the callback passed by library code
+     *
+     * @param {Function} callback the callback function that accepts a single 'value' argument
+     * @override
+     */
+    setSelectedCallback( callback ) {
+
+        this.callback = callback;
+    }
+
+    /**
+     * Set a specific value on the select dropdown
+     *
+     * @param {String} id the id of the option to set
+     * @override
+     */
+    setValue( id ) {
+        const select = this.container.querySelector( 'select' );
+
+        if ( !select ) {
+            return;
+        }
+
+        select.value = id;
+    }
+
+    /**
+     * Callback for when the select dropdown changes its value
+     */
+    onSelect() {
+
+        const select = this.container.querySelector( 'select' );
+
+        if( select &amp;&amp; select.getBoundingClientRect().width > this.container.getBoundingClientRect().width ) {
+            this.container.classList.add( 'filter--overflow' );
+        } else {
+            this.container.classList.remove( 'filter--overflow' );
+        }
+
+        this.callback( select.value );
+    }
+
+    /**
+     * The main render function that will be called to add the filter to the DOM
+     *
+     * @param  {String} title the title of the filter
+     * @param  {Array.&lt;Option>} options the set of options to render
+     * @param  {String} defaultOptionValue the ID of the option that is currently selected
+     * @override
+     */
+    render( title, options, defaultOptionValue ) {
+
+        this.container.innerHTML = '';
+        const elements = this.createSelectElement( title, options, defaultOptionValue );
+        this.container.appendChild( elements.label );
+        this.container.appendChild( elements.select );
+        this.container.appendChild( elements.indicator );
+        elements.select.onchange = this.onSelect.bind( this );
+
+    }
+
+    /**
+     * Create a select element in memory
+     *
+     * @param  {String} name the title of the filter
+     * @param  {Array.&lt;Option>} options the set of options to render
+     * @param  {String} defaultValue the ID of the option that is currently selected
+     * @return {Object} object containing a select element, label and a indicator element which is colored depending on state
+     */
+    createSelectElement( name, options, defaultValue ) {
+
+        const select = document.createElement( 'select' );
+        const label = document.createElement( 'label' );
+        const indicator = document.createElement( 'div' );
+
+        select.id = name;
+        label.for = name;
+        label.innerText = name;
+        select.classList.add( 'filter__select' );
+        label.classList.add( 'filter__label' );
+        indicator.classList.add( 'filter__indicator' );
+
+
+        options.forEach( option => {
+            const optionEl = this.createOptionElement( option );
+            if ( option.value === defaultValue ) {
+                optionEl.selected = 'true';
+            }
+            select.appendChild( optionEl );
+        } );
+
+        return { label, select, indicator };
+    }
+
+    /**
+     * Create a select dropdown &lt;option> element in memory
+     *
+     * @param  {Option} option the option to create
+     * @return {HTMLElement} the &lt;option> element
+     */
+    createOptionElement( option ) {
+
+        const optionEl = document.createElement( 'option' );
+        optionEl.value = option.value;
+        optionEl.innerText = option.name;
+        if( option.default ) {
+            optionEl.selected = true;
+        }
+
+        return optionEl;
+    }
+
+    /**
+     * Set the select into a loading state while it fetches data
+     * @param {String} title title of the element
+     */
+    setLoadingState( title ) {
+        this.render( title, [ { name: 'Loading', value: '-1' } ], '-1' );
+        this.container.classList.remove( 'filter--disabled' );
+        this.container.classList.add( 'filter--loading' );
+    }
+
+    /**
+     * Get rid of the loading class
+     *
+     * @param {String} title title of the element
+     */
+    removeLoadingState( title ) {
+        this.container.classList.remove( 'filter--loading' );
+    }
+
+    /**
+     * make sure the user cannot interact with the filter
+     *
+     * @param {String} title title of the element
+     */
+    setDisabledState( title ) {
+        this.render( title, [ { name: 'Disabled', value: 'disabled' } ], 'disabled' );
+        this.container.classList.add( 'filter--disabled' );
+        this.container.classList.remove( 'filter--loading' );
+    }
+
+    /**
+     * Set the filter into a error state as something has gone wrong
+     */
+    setErrorState( title ) {
+        this.render( title, [ { name: 'Error', value: '-1' } ], '-1' );
+    }
+
+    /**
+     * Set the container so it can be used to render the filter into later
+     *
+     * @param {HTMLElement} container the filter container
+     */
+    setContainer( container ) {
+        this.container = container;
+    }
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Filter.html">Filter</a></li><li><a href="FilterSet.html">FilterSet</a></li><li><a href="NativeSelectFilter.html">NativeSelectFilter</a></li><li><a href="TreeNode.html">TreeNode</a></li></ul><h3>Interfaces</h3><ul><li><a href="FilterInterface.html">FilterInterface</a></li></ul><h3>Global</h3><ul><li><a href="global.html#FILTER_SET_STATE">FILTER_SET_STATE</a></li><li><a href="global.html#FILTER_STATE">FILTER_STATE</a></li><li><a href="global.html#parameterError">parameterError</a></li><li><a href="global.html#promiseRequest">promiseRequest</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Jul 14 2018 21:53:01 GMT+0100 (BST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

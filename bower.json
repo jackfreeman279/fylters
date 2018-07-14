@@ -33,6 +33,7 @@
     "lib",
     "lambda",
     "docs",
-    "LICENCE.txt"
+    "LICENCE.txt",
+    "doc-resources/"
   ]
 }
