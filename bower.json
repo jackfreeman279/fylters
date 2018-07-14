@@ -1,0 +1,37 @@
+{
+  "name": "fylters",
+  "description": "A browser framework for building interconnected filters",
+  "main": "dist/fylters.js",
+  "authors": [
+    "amman.vedi@gmail.com"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "filters",
+    "filtering",
+    "dependencies",
+    "api",
+    "select",
+    "dropdowns",
+    "group"
+  ],
+  "homepage": "https://ammanvedi.github.io/fylters/",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "gulpfile.js",
+    "webpack.conf.js",
+    "todo.txt",
+    "readme.md",
+    "package.json",
+    "package-lock.json",
+    "jsdoc.conf.js",
+    ".travis.yml",
+    "lib",
+    "lambda",
+    "docs"
+  ]
+}
