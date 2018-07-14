@@ -1,7 +1,7 @@
 # Fylters [![Build Status](https://travis-ci.org/ammanvedi/fylters.svg?branch=master)](https://travis-ci.org/ammanvedi/fylters)
 A browser framework for building interconnected filters. You can see it in action on the [example page](https://ammanvedi.github.io/fylters/)
 
-<img style="width:100%" src="https://image.ibb.co/bEipZ8/Jul_14_2018_20_03_24.gif" ></img>
+![Filter Image](https://i.imgur.com/7gzUbXm.png)
 
 ### Install
 
