@@ -18,4 +18,14 @@ describe( 'Disable Behaviour', function() {
             done();
         } );
     } );
+
+    it( 'Disables filter an empty response is recieved', function( done ) {
+        createInstance( configs.dummyDataConfigEmptyResponse, function( instance, initialState ) {
+            expect( initialState[ 0 ].value ).to.equal( undefined );
+            expect( initialState[ 0 ].name ).to.equal( undefined );
+            expect( initialState[ 1 ].value ).to.equal( undefined );
+            expect( initialState[ 1 ].name ).to.equal( undefined );
+            done();
+        } );
+    } );
 } );

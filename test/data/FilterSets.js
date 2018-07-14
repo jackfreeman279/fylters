@@ -612,5 +612,460 @@ var configs = {
             },
             dependsOn: [ 'Home/Away' ]
         }
+    ],
+    dummyDataConfigEmptyResponse: [
+        {
+            uiClass: TestFilter,
+            name: 'competition',
+            data: () => {
+                return randomlyResolvingPromise( true, [] );
+            },
+            middleWares: {
+                decideDefault: options => {
+                    return '2';
+                }
+            }
+        },
+        {
+            uiClass: TestFilter,
+            name: 'season',
+            data: filter => {
+                return randomlyResolvingPromise( true, GET_SEASON_RESPONSE( filter.getCurrentOption().value ) );
+            },
+            middleWares: {
+                decideFilterEnabledState: disableWhenValue( '-1' ),
+                beforeOptionUpdate: apiData => {
+                    //transform into option list
+                    // add all options
+                    const options = apiData.map( season => {
+                        return {
+                            name: season.seasonName,
+                            value: season.value,
+                            extra: season
+                        }
+                    } )
+                    return [
+                        {
+                            name: 'All',
+                            value: '-1'
+                        },
+                        ...options
+                    ]
+                },
+                decideDefault: options => {
+                    return options[ 1 ].value;
+                }
+            },
+            dependsOn: [ 'competition' ]
+        },
+        {
+            uiClass: TestFilter,
+            name: 'teams',
+            data: filter => {
+                return randomlyResolvingPromise( true, GET_TEAMS_RESPONSE( filter.getCurrentOption().value ) );
+            },
+            dependsOn: [ 'season' ],
+            middleWares: {
+                beforeOptionUpdate: apiData => {
+                    // transform into options list
+                    // add all option
+                    const options = apiData.map( team => {
+                        return {
+                            name: team.teamName,
+                            value: team.value,
+                            extra: team
+                        }
+                    } )
+
+                    return [
+                        {
+                            name: 'All',
+                            value: '-1'
+                        },
+                        ...options
+                    ]
+                },
+                decideFilterEnabledState: disableWhenValue( '-1' ),
+            }
+        },
+        {
+            uiClass: TestFilter,
+            name: 'Home/Away',
+            data: () => {
+                return [
+                    {
+                        name: 'Home',
+                        value: 'Home'
+                    },
+                    {
+                        name: 'Away',
+                        value: 'Away'
+                    }
+                ]
+            },
+            middleWares: {
+                decideFilterEnabledState: disableWhenValue( '-1' ),
+            },
+            dependsOn: [ 'teams' ]
+        },
+        {
+            name: 'Win',
+            uiClass: TestFilter,
+            data: () => {
+                return [
+                    {
+                        name: 'HomeWin',
+                        value: 'HomeWin'
+                    },
+                    {
+                        name: 'AwayWin',
+                        value: 'AwayWin'
+                    }
+                ]
+            },
+            dependsOn: [ 'Home/Away' ]
+        }
+    ],
+    dummyDataConfigFailNet: [
+        {
+            uiClass: TestFilter,
+            name: 'competition',
+            data: () => {
+                return 'sjfkfhshfkjshf.org.uk';
+            },
+            middleWares: {
+                decideDefault: options => {
+                    return '2';
+                }
+            }
+        },
+        {
+            uiClass: TestFilter,
+            name: 'season',
+            data: filter => {
+                return randomlyResolvingPromise( true, GET_SEASON_RESPONSE( filter.getCurrentOption().value ) );
+            },
+            middleWares: {
+                decideFilterEnabledState: disableWhenValue( '-1' ),
+                beforeOptionUpdate: apiData => {
+                    //transform into option list
+                    // add all options
+                    const options = apiData.map( season => {
+                        return {
+                            name: season.seasonName,
+                            value: season.value,
+                            extra: season
+                        }
+                    } )
+                    return [
+                        {
+                            name: 'All',
+                            value: '-1'
+                        },
+                        ...options
+                    ]
+                },
+                decideDefault: options => {
+                    return options[ 1 ].value;
+                }
+            },
+            dependsOn: [ 'competition' ]
+        },
+        {
+            uiClass: TestFilter,
+            name: 'teams',
+            data: filter => {
+                return randomlyResolvingPromise( true, GET_TEAMS_RESPONSE( filter.getCurrentOption().value ) );
+            },
+            dependsOn: [ 'season' ],
+            middleWares: {
+                beforeOptionUpdate: apiData => {
+                    // transform into options list
+                    // add all option
+                    const options = apiData.map( team => {
+                        return {
+                            name: team.teamName,
+                            value: team.value,
+                            extra: team
+                        }
+                    } )
+
+                    return [
+                        {
+                            name: 'All',
+                            value: '-1'
+                        },
+                        ...options
+                    ]
+                },
+                decideFilterEnabledState: disableWhenValue( '-1' ),
+            }
+        },
+        {
+            uiClass: TestFilter,
+            name: 'Home/Away',
+            data: () => {
+                return [
+                    {
+                        name: 'Home',
+                        value: 'Home'
+                    },
+                    {
+                        name: 'Away',
+                        value: 'Away'
+                    }
+                ]
+            },
+            middleWares: {
+                decideFilterEnabledState: disableWhenValue( '-1' ),
+            },
+            dependsOn: [ 'teams' ]
+        },
+        {
+            name: 'Win',
+            uiClass: TestFilter,
+            data: () => {
+                return [
+                    {
+                        name: 'HomeWin',
+                        value: 'HomeWin'
+                    },
+                    {
+                        name: 'AwayWin',
+                        value: 'AwayWin'
+                    }
+                ]
+            },
+            dependsOn: [ 'Home/Away' ]
+        }
+    ],
+    dummyDataConfigFailData: [
+        {
+            uiClass: TestFilter,
+            name: 'competition',
+            data: () => {
+                return randomlyResolvingPromise( true, COMP_RESPONSE );
+            },
+            middleWares: {
+                beforeOptionUpdate: () => {
+                    throw new Error( 'test error' );
+                },
+                decideDefault: options => {
+                    return '2';
+                }
+            }
+        },
+        {
+            uiClass: TestFilter,
+            name: 'season',
+            data: filter => {
+                return randomlyResolvingPromise( true, GET_SEASON_RESPONSE( filter.getCurrentOption().value ) );
+            },
+            middleWares: {
+                decideFilterEnabledState: disableWhenValue( '-1' ),
+                beforeOptionUpdate: apiData => {
+                    //transform into option list
+                    // add all options
+                    const options = apiData.map( season => {
+                        return {
+                            name: season.seasonName,
+                            value: season.value,
+                            extra: season
+                        }
+                    } )
+                    return [
+                        {
+                            name: 'All',
+                            value: '-1'
+                        },
+                        ...options
+                    ]
+                },
+                decideDefault: options => {
+                    return options[ 1 ].value;
+                }
+            },
+            dependsOn: [ 'competition' ]
+        },
+        {
+            uiClass: TestFilter,
+            name: 'teams',
+            data: filter => {
+                return randomlyResolvingPromise( true, GET_TEAMS_RESPONSE( filter.getCurrentOption().value ) );
+            },
+            dependsOn: [ 'season' ],
+            middleWares: {
+                beforeOptionUpdate: apiData => {
+                    // transform into options list
+                    // add all option
+                    const options = apiData.map( team => {
+                        return {
+                            name: team.teamName,
+                            value: team.value,
+                            extra: team
+                        }
+                    } )
+
+                    return [
+                        {
+                            name: 'All',
+                            value: '-1'
+                        },
+                        ...options
+                    ]
+                },
+                decideFilterEnabledState: disableWhenValue( '-1' ),
+            }
+        },
+        {
+            uiClass: TestFilter,
+            name: 'Home/Away',
+            data: () => {
+                return [
+                    {
+                        name: 'Home',
+                        value: 'Home'
+                    },
+                    {
+                        name: 'Away',
+                        value: 'Away'
+                    }
+                ]
+            },
+            middleWares: {
+                decideFilterEnabledState: disableWhenValue( '-1' ),
+            },
+            dependsOn: [ 'teams' ]
+        },
+        {
+            name: 'Win',
+            uiClass: TestFilter,
+            data: () => {
+                return [
+                    {
+                        name: 'HomeWin',
+                        value: 'HomeWin'
+                    },
+                    {
+                        name: 'AwayWin',
+                        value: 'AwayWin'
+                    }
+                ]
+            },
+            dependsOn: [ 'Home/Away' ]
+        }
+    ],
+    dummyDataConfigFailDefault: [
+        {
+            uiClass: TestFilter,
+            name: 'competition',
+            data: () => {
+                return randomlyResolvingPromise( true, COMP_RESPONSE );
+            },
+            middleWares: {
+                decideDefault: options => {
+                    throw new Error( 'test-error' );
+                }
+            }
+        },
+        {
+            uiClass: TestFilter,
+            name: 'season',
+            data: filter => {
+                return randomlyResolvingPromise( true, GET_SEASON_RESPONSE( filter.getCurrentOption().value ) );
+            },
+            middleWares: {
+                decideFilterEnabledState: disableWhenValue( '-1' ),
+                beforeOptionUpdate: apiData => {
+                    //transform into option list
+                    // add all options
+                    const options = apiData.map( season => {
+                        return {
+                            name: season.seasonName,
+                            value: season.value,
+                            extra: season
+                        }
+                    } )
+                    return [
+                        {
+                            name: 'All',
+                            value: '-1'
+                        },
+                        ...options
+                    ]
+                },
+                decideDefault: options => {
+                    return options[ 1 ].value;
+                }
+            },
+            dependsOn: [ 'competition' ]
+        },
+        {
+            uiClass: TestFilter,
+            name: 'teams',
+            data: filter => {
+                return randomlyResolvingPromise( true, GET_TEAMS_RESPONSE( filter.getCurrentOption().value ) );
+            },
+            dependsOn: [ 'season' ],
+            middleWares: {
+                beforeOptionUpdate: apiData => {
+                    // transform into options list
+                    // add all option
+                    const options = apiData.map( team => {
+                        return {
+                            name: team.teamName,
+                            value: team.value,
+                            extra: team
+                        }
+                    } )
+
+                    return [
+                        {
+                            name: 'All',
+                            value: '-1'
+                        },
+                        ...options
+                    ]
+                },
+                decideFilterEnabledState: disableWhenValue( '-1' ),
+            }
+        },
+        {
+            uiClass: TestFilter,
+            name: 'Home/Away',
+            data: () => {
+                return [
+                    {
+                        name: 'Home',
+                        value: 'Home'
+                    },
+                    {
+                        name: 'Away',
+                        value: 'Away'
+                    }
+                ]
+            },
+            middleWares: {
+                decideFilterEnabledState: disableWhenValue( '-1' ),
+            },
+            dependsOn: [ 'teams' ]
+        },
+        {
+            name: 'Win',
+            uiClass: TestFilter,
+            data: () => {
+                return [
+                    {
+                        name: 'HomeWin',
+                        value: 'HomeWin'
+                    },
+                    {
+                        name: 'AwayWin',
+                        value: 'AwayWin'
+                    }
+                ]
+            },
+            dependsOn: [ 'Home/Away' ]
+        }
     ]
 }
