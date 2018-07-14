@@ -152,7 +152,7 @@ Fylter is not intended to offer a perfect solution for the UI of a filter, altho
 
 You can implement a custom filter by extending the `fylter.FilterInterface` class and then passing your class as the `uiClass` in your [filter config](https://ammanvedi.github.io/fylters/developer/global.html#FilterConfig__anchor)
 
-You can see this implemented in the [NativeSelectFilter](https://github.com/ammanvedi/fylters/blob/master/lib/js/filter/NativeSelect.js) class which is based on a <select> element
+You can see this implemented in the [NativeSelectFilter](https://github.com/ammanvedi/fylters/blob/master/lib/js/filter/NativeSelect.js) class which is based on a select element
 
 ### Data Fetch Layer
 
