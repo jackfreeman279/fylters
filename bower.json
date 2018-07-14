@@ -32,6 +32,7 @@
     ".travis.yml",
     "lib",
     "lambda",
-    "docs"
+    "docs",
+    "LICENCE.txt"
   ]
 }
