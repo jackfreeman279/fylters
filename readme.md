@@ -1,7 +1,7 @@
 # Fylters [![Build Status](https://travis-ci.org/ammanvedi/fylters.svg?branch=master)](https://travis-ci.org/ammanvedi/fylters)
 A browser framework for building interconnected filters. You can see it in action on the [example page](https://ammanvedi.github.io/fylters/)
 
-![Music Filters Example](https://media.giphy.com/media/1gQXadsD9BfNEVxkB6/giphy.gif)
+<img style="width:100%" src="https://image.ibb.co/bEipZ8/Jul_14_2018_20_03_24.gif" ></img>
 
 ### Install
 
@@ -13,7 +13,7 @@ A browser framework for building interconnected filters. You can see it in actio
 <div id="container"></div>
 
 <script>
-	new fylter.FilterSet( 
+	new fylter.FilterSet(
 		document.getElementById( 'container' ),
 		{
 			filters: [...],
@@ -150,13 +150,13 @@ Each time your filter state changes the `onUpdate` function will be called with 
 
 Fylter is not intended to offer a perfect solution for the UI of a filter, although a default filter (with styling) is provided, you may find that you want to use your own filters and still take advantage of the dependecy management provided by Fylter.
 
-You can implement a custom filter by extending the `fylter.FilterInterface` class and then passing your class as the `uiClass` in your [filter config](https://ammanvedi.github.io/fylters/developer/global.html#FilterConfig__anchor) 
+You can implement a custom filter by extending the `fylter.FilterInterface` class and then passing your class as the `uiClass` in your [filter config](https://ammanvedi.github.io/fylters/developer/global.html#FilterConfig__anchor)
 
 You can see this implemented in the [NativeSelectFilter](https://github.com/ammanvedi/fylters/blob/master/lib/js/filter/NativeSelect.js) class which is based on a <select> element
 
 ### Data Fetch Layer
 
-When you return a string from the [filter config](https://ammanvedi.github.io/fylters/developer/global.html#FilterConfig__anchor) data property this will be assumed to be a url and a network call will be made. 
+When you return a string from the [filter config](https://ammanvedi.github.io/fylters/developer/global.html#FilterConfig__anchor) data property this will be assumed to be a url and a network call will be made.
 
 ##### Inserted Values
 
